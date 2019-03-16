@@ -12,7 +12,7 @@ custom:
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
-  notesTable: ${self:custom.stage}-notes
+  notesTable: edvardgig-${self:custom.stage}-notes
   # Set our DynamoDB throughput for prod and all other non-prod stages.
   tableThroughputs:
     prod: 5
@@ -62,7 +62,7 @@ functions:
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
   #     domain api call
   # - authorizer: authenticate using the AWS IAM role
-  create:
+  note.create:
     handler: create.main
     events:
       - http:
@@ -71,7 +71,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  get:
+  note.get:
     # Defines an HTTP API endpoint that calls the main function in get.js
     # - path: url path is /notes/{id}
     # - method: GET request
@@ -83,7 +83,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  list:
+  note.list:
     # Defines an HTTP API endpoint that calls the main function in list.js
     # - path: url path is /notes
     # - method: GET request
@@ -95,7 +95,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  update:
+  note.update:
     # Defines an HTTP API endpoint that calls the main function in update.js
     # - path: url path is /notes/{id}
     # - method: PUT request
@@ -107,7 +107,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  delete:
+  note.delete:
     # Defines an HTTP API endpoint that calls the main function in delete.js
     # - path: url path is /notes/{id}
     # - method: DELETE request
