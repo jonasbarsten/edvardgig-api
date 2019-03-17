@@ -5,14 +5,12 @@ plugins:
   - serverless-webpack
   - serverless-offline
 
-# serverless-webpack configuration
-# Enable auto-packing of external modules
 custom:
   # Our stage is based on what is passed in when running serverless
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
-  notesTable: ${self:custom.stage}-notes
+  tableName: edvardgig-${self:custom.stage}-notes
   # Set our DynamoDB throughput for prod and all other non-prod stages.
   tableThroughputs:
     prod: 5
@@ -35,11 +33,9 @@ provider:
   # These environment variables are made available to our functions
   # under process.env.
   environment:
-    notesTable: ${self:custom.notesTable}
+    tableName: ${self:custom.tableName}
     stripeSecretKey: ${self:custom.environment.stripeSecretKey}
-    
-  # 'iamRoleStatement' defines the permission policy for the Lambda function.
-  # In this case Lambda functions are granted with permissions to access DynamoDB.
+
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -62,7 +58,7 @@ functions:
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
   #     domain api call
   # - authorizer: authenticate using the AWS IAM role
-  note.create:
+  create:
     handler: create.main
     events:
       - http:
@@ -71,7 +67,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  note.get:
+  get:
     # Defines an HTTP API endpoint that calls the main function in get.js
     # - path: url path is /notes/{id}
     # - method: GET request
@@ -83,7 +79,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  note.list:
+  list:
     # Defines an HTTP API endpoint that calls the main function in list.js
     # - path: url path is /notes
     # - method: GET request
@@ -95,7 +91,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  note.update:
+  update:
     # Defines an HTTP API endpoint that calls the main function in update.js
     # - path: url path is /notes/{id}
     # - method: PUT request
@@ -107,7 +103,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
-  note.delete:
+  delete:
     # Defines an HTTP API endpoint that calls the main function in delete.js
     # - path: url path is /notes/{id}
     # - method: DELETE request
