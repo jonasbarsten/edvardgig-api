@@ -17,6 +17,15 @@ export function calculateCost(product) {
     case "dLive":
       rate = 29;
       break;
+    case "VIDEO":
+      rate = 49;
+      break;
+    case "SPD-SX":
+      rate = 49;
+      break;
+    case "Program Change":
+      rate = 49;
+      break;
     default:
       rate = 0;
   }
