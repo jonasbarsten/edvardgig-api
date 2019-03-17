@@ -46,7 +46,7 @@ export async function main(event, context) {
       amount,
       description,
       receipt_email: email,
-      statement_descriptor: `Edvard Gig - Software`,
+      statement_descriptor: 'Edvard Gig - Software',
       currency: "usd",
       metadata: { email, license: license.body }
     });
