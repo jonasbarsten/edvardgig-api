@@ -54,26 +54,17 @@ provider:
       # the specific table for the stage
       Resource:
         - "Fn::GetAtt": [ NotesTable, Arn ]
+        - "Fn::GetAtt": [ LicensesTable, Arn ]
 
 functions:
   - ${file(services/notes/notes.yml)}
   - ${file(services/billing/billing.yml)}
-  # Defines an HTTP API endpoint that calls the main function in create.js
-  # - path: url path is /notes
-  # - method: POST request
-  # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
-  #     domain api call
-  # - authorizer: authenticate using the AWS IAM role
-  
+  - ${file(services/licenses/licenses.yml)}
 
 # Create our resources with separate CloudFormation templates
 resources:
-  # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
-  # DynamoDB
   - ${file(resources/dynamodb-table.yml)}
-  # S3
   - ${file(resources/s3-bucket.yml)}
-  # Cognito
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
