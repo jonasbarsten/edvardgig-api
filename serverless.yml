@@ -12,6 +12,7 @@ custom:
   # Set the table name here so we can use it while testing locally
   notesTable: edvardgig-${self:custom.stage}-notes
   licensesTable: edvardgig-${self:custom.stage}-licenses
+  productsTable: edvardgig-${self:custom.stage}-products
   # Set our DynamoDB throughput for prod and all other non-prod stages.
   tableThroughputs:
     prod: 5
@@ -37,6 +38,7 @@ provider:
     # Tables
     notesTable: ${self:custom.notesTable}
     licensesTable: ${self:custom.licensesTable}
+    productsTable: ${self:custom.productsTable}
     # Stripe
     stripeSecretKey: ${self:custom.environment.stripeSecretKey}
 
@@ -55,11 +57,13 @@ provider:
       Resource:
         - "Fn::GetAtt": [ NotesTable, Arn ]
         - "Fn::GetAtt": [ LicensesTable, Arn ]
+        - "Fn::GetAtt": [ ProductsTable, Arn ]
 
 functions:
   - ${file(services/notes/notes.yml)}
-  - ${file(services/billing/billing.yml)}
   - ${file(services/licenses/licenses.yml)}
+  - ${file(services/products/products.yml)}
+  - ${file(services/billing/billing.yml)}
 
 # Create our resources with separate CloudFormation templates
 resources:
