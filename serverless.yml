@@ -11,7 +11,7 @@ custom:
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
   notesTable: edvardgig-${self:custom.stage}-notes
-  # licensesTable: edvardgig-${self:custom.stage}-licenses
+  licensesTable: edvardgig-${self:custom.stage}-licenses
   # Set our DynamoDB throughput for prod and all other non-prod stages.
   tableThroughputs:
     prod: 5
@@ -36,7 +36,7 @@ provider:
   environment:
     # Tables
     notesTable: ${self:custom.notesTable}
-    # licensesTable: ${self:custom.licensesTable}
+    licensesTable: ${self:custom.licensesTable}
     # Stripe
     stripeSecretKey: ${self:custom.environment.stripeSecretKey}
 
@@ -56,77 +56,15 @@ provider:
         - "Fn::GetAtt": [ NotesTable, Arn ]
 
 functions:
+  - ${file(services/notes/notes.yml)}
+  - ${file(services/billing/billing.yml)}
   # Defines an HTTP API endpoint that calls the main function in create.js
   # - path: url path is /notes
   # - method: POST request
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
   #     domain api call
   # - authorizer: authenticate using the AWS IAM role
-  create:
-    handler: services/notes/create.main
-    events:
-      - http:
-          path: notes
-          method: post
-          cors: true
-          authorizer: aws_iam
-
-  get:
-    # Defines an HTTP API endpoint that calls the main function in get.js
-    # - path: url path is /notes/{id}
-    # - method: GET request
-    handler: services/notes/get.main
-    events:
-      - http:
-          path: notes/{id}
-          method: get
-          cors: true
-          authorizer: aws_iam
-
-  list:
-    # Defines an HTTP API endpoint that calls the main function in list.js
-    # - path: url path is /notes
-    # - method: GET request
-    handler: services/notes/list.main
-    events:
-      - http:
-          path: notes
-          method: get
-          cors: true
-          authorizer: aws_iam
-
-  update:
-    # Defines an HTTP API endpoint that calls the main function in update.js
-    # - path: url path is /notes/{id}
-    # - method: PUT request
-    handler: services/notes/update.main
-    events:
-      - http:
-          path: notes/{id}
-          method: put
-          cors: true
-          authorizer: aws_iam
-
-  delete:
-    # Defines an HTTP API endpoint that calls the main function in delete.js
-    # - path: url path is /notes/{id}
-    # - method: DELETE request
-    handler: services/notes/delete.main
-    events:
-      - http:
-          path: notes/{id}
-          method: delete
-          cors: true
-          authorizer: aws_iam
-
-  billing:
-    handler: billing.main
-    events:
-      - http:
-          path: billing
-          method: post
-          cors: true
-          authorizer: aws_iam
+  
 
 # Create our resources with separate CloudFormation templates
 resources:
