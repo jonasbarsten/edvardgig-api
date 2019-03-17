@@ -23,7 +23,7 @@ import { success, failure } from "../../libs/response-lib";
 //   }
 // }
 
-export default async function createLicense (userId, product) {
+export default async function createLicense (userId, product, type) {
 
   // const data = JSON.parse(event.body);
   const params = {
@@ -32,6 +32,7 @@ export default async function createLicense (userId, product) {
       userId,
       licenseId: uuid.v1(),
       product,
+      type,
       createdAt: Date.now()
     }
   };

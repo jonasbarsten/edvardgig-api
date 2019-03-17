@@ -1,5 +1,5 @@
 {
-  "body": "{\"source\":\"tok_visa\",\"product\":\"dLive\",\"email\":\"tester@jonasbj.com\"}",
+  "body": "{\"source\":\"tok_visa\",\"product\":\"Program Change\",\"email\":\"tester@jonasbj.com\"}",
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "USER-SUB-1234"

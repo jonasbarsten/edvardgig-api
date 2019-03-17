@@ -31,7 +31,7 @@ export async function main(event, context) {
     return failure({ message: 'No matching products' });
   }
 
-  const license = await createLicense(userId, product);
+  const license = await createLicense(userId, product, 'permanent');
 
   if (license.statusCode !== 200) {
     return failure({ message: 'Could not create license' });
@@ -46,12 +46,13 @@ export async function main(event, context) {
       amount,
       description,
       receipt_email: email,
-      statement_descriptor: `Edvard Gig - ${product}`,
+      statement_descriptor: `Edvard Gig - Software`,
       currency: "usd",
       metadata: { email, license: license.body }
     });
     return success({ status: true });
   } catch (e) {
+    // Todo: remove license here
     return failure({ message: e.message });
   }
 }
