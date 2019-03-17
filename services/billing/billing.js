@@ -16,6 +16,10 @@ export async function main(event, context) {
 
   const license = await createLicense(userId, product);
 
+  if (amount === 0) {
+    return failure({ message: 'No matching products' });
+  }
+
   if (license.statusCode !== 200) {
     return failure({ message: 'Could not create license' });
   }
