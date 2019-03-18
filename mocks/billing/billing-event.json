@@ -1,5 +1,5 @@
 {
-  "body": "{\"source\":\"tok_visa\",\"product\":\"MIDI\",\"email\":\"MEGAGAGAGAGAGA@jonasbj.com\"}",
+  "body": "{\"source\":\"tok_visa\",\"product\":\"SYNC extra license\",\"email\":\"MEGAGAGAGAGAGA@jonasbj.com\"}",
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "USER-SUB-1234"

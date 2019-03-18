@@ -1,9 +1,4 @@
 export function calculateCost(product) {
-  // const rate = storage <= 10
-  //   ? 4
-  //   : storage <= 100
-  //     ? 2
-  //     : 1;
 
   let rate = 0;
 
@@ -39,10 +34,10 @@ export function calculateCost(product) {
       rate = 49;
       break;
     case "Program Change":
-      rate = 49;
+      rate = 29;
       break;
     case "Program Change extra license":
-      rate = 49;
+      rate = 29;
       break;
     default:
       rate = 0;
