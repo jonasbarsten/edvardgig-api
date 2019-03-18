@@ -93,7 +93,7 @@ test("VIDEO extra license", () => {
 test("Program Change", () => {
   const product = "Program Change";
 
-  const cost = 4900;
+  const cost = 2900;
   const expectedCost = calculateCost(product);
 
   expect(cost).toEqual(expectedCost);
@@ -102,7 +102,7 @@ test("Program Change", () => {
 test("Program Change extra license", () => {
   const product = "Program Change extra license";
 
-  const cost = 4900;
+  const cost = 2900;
   const expectedCost = calculateCost(product);
 
   expect(cost).toEqual(expectedCost);

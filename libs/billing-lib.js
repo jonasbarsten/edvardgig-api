@@ -24,13 +24,13 @@ export function calculateCost(product) {
     case "VIDEO":
       rate = 49;
       break;
-    case "VIDEO ekstra license":
+    case "VIDEO extra license":
       rate = 49;
       break;
     case "SPD-SX":
       rate = 49;
       break;
-    case "SPD-SX ekstra license":
+    case "SPD-SX extra license":
       rate = 49;
       break;
     case "Program Change":
