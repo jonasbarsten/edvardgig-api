@@ -9,6 +9,15 @@ test("SYNC", () => {
   expect(cost).toEqual(expectedCost);
 });
 
+test("SYNC extra license", () => {
+  const product = "SYNC extra license";
+
+  const cost = 1500;
+  const expectedCost = calculateCost(product);
+
+  expect(cost).toEqual(expectedCost);
+});
+
 test("MIDI", () => {
   const product = "MIDI";
 
@@ -18,8 +27,26 @@ test("MIDI", () => {
   expect(cost).toEqual(expectedCost);
 });
 
+test("MIDI extra license", () => {
+  const product = "MIDI extra license";
+
+  const cost = 900;
+  const expectedCost = calculateCost(product);
+
+  expect(cost).toEqual(expectedCost);
+});
+
 test("SPD-SX", () => {
   const product = "SPD-SX";
+
+  const cost = 4900;
+  const expectedCost = calculateCost(product);
+
+  expect(cost).toEqual(expectedCost);
+});
+
+test("SPD-SX extra license", () => {
+  const product = "SPD-SX extra license";
 
   const cost = 4900;
   const expectedCost = calculateCost(product);
@@ -36,6 +63,15 @@ test("dLive", () => {
   expect(cost).toEqual(expectedCost);
 });
 
+test("dLive extra license", () => {
+  const product = "dLive extra license";
+
+  const cost = 2900;
+  const expectedCost = calculateCost(product);
+
+  expect(cost).toEqual(expectedCost);
+});
+
 test("VIDEO", () => {
   const product = "VIDEO";
 
@@ -45,8 +81,26 @@ test("VIDEO", () => {
   expect(cost).toEqual(expectedCost);
 });
 
+test("VIDEO extra license", () => {
+  const product = "VIDEO extra license";
+
+  const cost = 4900;
+  const expectedCost = calculateCost(product);
+
+  expect(cost).toEqual(expectedCost);
+});
+
 test("Program Change", () => {
   const product = "Program Change";
+
+  const cost = 4900;
+  const expectedCost = calculateCost(product);
+
+  expect(cost).toEqual(expectedCost);
+});
+
+test("Program Change extra license", () => {
+  const product = "Program Change extra license";
 
   const cost = 4900;
   const expectedCost = calculateCost(product);
