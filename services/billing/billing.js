@@ -3,6 +3,7 @@ import { calculateCost } from "../../libs/billing-lib";
 import { success, failure } from "../../libs/response-lib";
 
 import createLicense from '../licenses/create';
+import deleteLicense from '../licenses/delete';
 import { listLicenses } from '../licenses/list';
 
 export async function main(event, context) {
@@ -32,6 +33,7 @@ export async function main(event, context) {
   }
 
   const license = await createLicense(userId, product, 'permanent');
+  const licenseJSON = JSON.parse(license.body);
 
   if (license.statusCode !== 200) {
     return failure({ message: 'Could not create license' });
@@ -52,7 +54,8 @@ export async function main(event, context) {
     });
     return success({ status: true });
   } catch (e) {
-    // Todo: remove license here
+    
+    await deleteLicense(userId, licenseJSON.licenseId);
     return failure({ message: e.message });
   }
 }

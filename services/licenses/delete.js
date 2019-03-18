@@ -20,3 +20,25 @@ export async function main(event, context) {
     return failure({ status: false });
   }
 }
+
+// Local function
+
+export default async function deleteLicense (userId, licenseId) {
+  const params = {
+    TableName: process.env.licensesTable,
+    // 'Key' defines the partition key and sort key of the item to be removed
+    // - 'userId': Identity Pool identity id of the authenticated user
+    // - 'noteId': path parameter
+    Key: {
+      userId: userId,
+      licenseId: licenseId
+    }
+  };
+
+  try {
+    const result = await dynamoDbLib.call("delete", params);
+    return success({ status: true });
+  } catch (e) {
+    return failure({ status: false });
+  }
+}
