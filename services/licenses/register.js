@@ -21,6 +21,8 @@ const signRegistration = (registration) => {
 
 export async function main (event, context) {
 
+  console.log(process.env.privateKey);
+
   const data = JSON.parse(event.body);
   const key = data.key;
   const userId = event.requestContext.identity.cognitoIdentityId;
