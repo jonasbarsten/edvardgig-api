@@ -41,6 +41,9 @@ provider:
     productsTable: ${self:custom.productsTable}
     # Stripe
     stripeSecretKey: ${self:custom.environment.stripeSecretKey}
+    #De/encryption
+    privateKey: ${self:custom.environment.privateKey}
+    privateSecret: ${self:custom.environment.privateSecret}
 
   iamRoleStatements:
     - Effect: Allow

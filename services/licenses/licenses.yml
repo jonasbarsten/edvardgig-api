@@ -25,6 +25,15 @@ licensesList:
         cors: true
         authorizer: aws_iam
 
+licensesRegister:
+  handler: services/licenses/register.main
+  events:
+    - http:
+        path: licenses/register
+        method: post
+        cors: true
+        authorizer: aws_iam
+
 # licensesUpdate:
 #   handler: services/licenses/update.main
 #   events:

@@ -1,0 +1,8 @@
+{
+  "body": "{\"key\":\"Rzz8btRNrVAGEr1RwAF0goSc1uemj9YYPzW+ksl1Od6KoBwT7eceJWrRe40e4Ue28QhrfX0x614GKy4N/ZK09zX1H9gT13/as1+aehGGLOOybk7YCS6dbL3dgeedDGy22smkK83qSm79IFqyUS7KioDeins6cq79yCxGrB7MeA71o877kv7JtVctpHUtBEKGGcBOpvz+kkOPxYU4Em0YUWceBbyRxw5uoH076QUi6dMf/Omdi8ilDwePPUsD/xk3Gkbe0V+RZWjY7f3hflMcboLCAC5kC6889BQXrFWd9gfo5q65tlYQxoPLGpsWefvOHRvdyZ5wuzSxPRFM6++hJq+YNPMdOBFy+Y1O9UwNgEd77PE8c1t01Us4RSnLhFvhNRVZBMdl+5EO2aIVpZJ9B1hzCGKcygzFfpX4/j8HbccotsusRXn13tvgMQ5cy24ImWssVTJuEHeO3TfMYwVYKSymsieITDfYZacEQA9uFNZh+Kj8+V1gEB3ggrD3xpyB+nn24ekM4bG96+aGRcJc1Nfdv5aIkq53ISuxmfxfg8iqxVeufjimZLTPctxKEaHxmcv6g/W/XVC20EX6DBq33NOQplDXyp0EUPEu+RF3ijzQo6TsZ2YYBJ51yBnGNBC3CmwDHHWBv5RypwaF2o3OKHohqm0SUz3THLgHNCLrbMo=\",\"email\":\"jonasbarsten@gmail.com\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

@@ -25,7 +25,6 @@ import { success, failure } from "../../libs/response-lib";
 
 export default async function createLicense (userId, product, type) {
 
-  // const data = JSON.parse(event.body);
   const params = {
     TableName: process.env.licensesTable,
     Item: {
@@ -33,6 +32,7 @@ export default async function createLicense (userId, product, type) {
       licenseId: uuid.v1(),
       product,
       type,
+      usage: 0,
       createdAt: Date.now()
     }
   };
