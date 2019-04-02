@@ -21,10 +21,20 @@ const signRegistration = (registration) => {
 
 export async function main (event, context) {
 
+  console.log(event);
+  console.log(context);
+
   const data = JSON.parse(event.body);
   const key = data.key;
+
+  console.log(data);
+  console.log(key);
+
   const userId = event.requestContext.identity.cognitoIdentityId;
   const registration = JSON.parse(decryptStringWithRsaPrivateKey(key));
+
+  console.log(userId);
+  console.log(registration);
 
   if (!registration.machineId || !registration.product || !registration.version) {
     return failure({ status: false });
